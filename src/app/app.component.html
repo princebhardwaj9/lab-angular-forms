@@ -1,0 +1,47 @@
+<!-- <router-outlet></router-outlet> -->
+
+<div class="header">
+  Angular-Forms
+</div>
+
+<div class="main-container">
+  <h2>Registration Details</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="text" formControlName="firstname" placeholder="First-Name"
+      [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"/>
+      <div *ngIf="submitted && f.firstname.errors">
+        <div *ngIf="f.firstname.errors.required">First Name is required</div>
+        <div *ngIf="f.firstname.errors.minLength">First Name must be atleast 3 characters</div>
+      </div>
+    </div>
+    <div>
+      <input type="text" formControlName="lastname" placeholder="Last-Name"
+      [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"/>
+      <div *ngIf="submitted && f.lastname.errors">
+        <div *ngIf="f.lastname.errors.required">First Name is required</div>
+        <div *ngIf="f.lastname.errors.minLength">First Name must be atleast 1 characters</div>
+      </div>
+    </div>
+    <div>
+      <input type="text" formControlName="email" placeholder="email"
+      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+      <div *ngIf="submitted && f.email.errors">
+        <div *ngIf="f.firstname.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must valid!!</div>
+      </div>
+    </div>
+    <div>
+      <input type="text" formControlName="password" placeholder="password"
+      [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+      <div *ngIf="submitted && f.password.errors">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minLength">Password must be atleast 8 characters</div>
+      </div>
+    </div>
+    <div>
+      <button>Register</button>
+      <button type="reset" (click)="onReset()">Cancel</button>
+    </div>
+</form>
+</div>
