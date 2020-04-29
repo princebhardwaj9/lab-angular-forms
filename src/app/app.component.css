@@ -39,3 +39,9 @@ button{
 button:hover{
     background-color: lightskyblue;
 }
+
+.footer{
+    font-size: large;
+    padding-top: 340px;
+    padding-left: 15px;
+}
